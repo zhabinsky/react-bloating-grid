@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+    rel="stylesheet">
+
+  <script
+    src="https://unpkg.com/prettier@1.19.1/standalone.js">
+  </script>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: rgb(255, 255, 255);
+    }
+
+    #bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 110vw;
+      height: 110vh;
+      background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+      z-index: -1;
+    }
+
+    #app {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .element {
+      transition: all 0.4s ease-out;
+      background: rgb(255, 238, 252);
+      background-size: cover;
+      border-radius: 4px;
+      transform: scale(1);
+      width: 100%;
+      padding-top: 100%;
+    }
+
+
+    .element:hover::after {
+      opacity: 1;
+    }
+
+    .element::after {
+      transition: all 0.2s ease-out;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      border-radius: 2px;
+      font-family: Arial, Helvetica, sans-serif;
+      content: "Hello 🐒";
+      color: rgb(205, 42, 172);
+      opacity: 0;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .element:hover::after {
+      opacity: 1;
+    }
+  </style>
+  <title>React Bloating Grid</title>
+</head>
+
+<body>
+  <div id="bg"></div>
+  <div id="app"></div>
+
+  <style>
+    .react-tabs {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .react-tabs__tab-list {
+      border-bottom: 1px solid #aaa;
+      margin: 0 0 10px;
+      padding: 0;
+    }
+
+    .react-tabs__tab {
+      display: inline-block;
+      border: 1px solid transparent;
+      border-bottom: none;
+      bottom: -1px;
+      position: relative;
+      list-style: none;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    .react-tabs__tab--selected {
+      background: #fff;
+      border-color: #aaa;
+      color: black;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .react-tabs__tab--disabled {
+      color: GrayText;
+      cursor: default;
+    }
+
+    .react-tabs__tab:focus {
+      box-shadow: 0 0 5px hsl(208, 99%, 50%);
+      border-color: hsl(208, 99%, 50%);
+      outline: none;
+    }
+
+    .react-tabs__tab:focus:after {
+      content: "";
+      position: absolute;
+      height: 5px;
+      left: -4px;
+      right: -4px;
+      bottom: -5px;
+      background: #fff;
+    }
+
+    .react-tabs__tab-panel {
+      display: none;
+    }
+
+    .react-tabs__tab-panel--selected {
+      display: block;
+    }
+  </style>
+
+  <!--Countly script-->
+  <script type='text/javascript'
+    src='https://cdn.jsdelivr.net/npm/countly-sdk-web@latest/lib/countly.min.js'>
+  </script>
+  <script type='text/javascript'>
+    Countly.init({
+      app_key: "f02189e864d75be14b6ddc6a849d0efbdf3c1e83",
+      url: "https://ponasasilas.com"
+    });
+    Countly.track_sessions();
+    Countly.track_pageview();
+  </script>
+</body>
+
+</html>
