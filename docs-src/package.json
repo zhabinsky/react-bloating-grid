@@ -4,7 +4,7 @@
     "description": "React Boilerplate Component Demo",
     "license": "MIT",
     "scripts": {
-        "build": "webpack",
+        "build": "npm run sync && webpack",
         "start": "webpack-dev-server",
         "sync": "cp -a ../package/dist/. node_modules/react-bloating-grid/dist/"
     },
