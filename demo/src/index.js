@@ -69,7 +69,7 @@ render (
     </h1>
 
     <a
-      href=""
+      href="https://github.com/zhabinsky/react-bloating-grid"
       style={{
         fontSize: 20,
         color: 'white',
@@ -77,7 +77,19 @@ render (
         marginBottom: 40,
       }}
     >
-      Github repo
+      Github repository
+    </a>
+    <br />
+    <a
+      href="https://github.com/zhabinsky/react-bloating-grid"
+      style={{
+        fontSize: 20,
+        color: 'white',
+        paddingTop: 40,
+        marginBottom: 40,
+      }}
+    >
+      nmpjs package
     </a>
 
     <p style={{margin: '50px 0', fontSize: 16}}>
