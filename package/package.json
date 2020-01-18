@@ -32,5 +32,6 @@
         "prop-types": "^15.7.2",
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
-    }
+    },
+    "author": "Vladislav Zhabinsky <vladislavzhabinsky@gmail.com>"
 }

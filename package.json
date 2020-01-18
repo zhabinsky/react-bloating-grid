@@ -1,0 +1,16 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "## [Documentation](https://zhabinsky.github.io/react-bloating-grid/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch package/src/ --ignore ../package/node_modules/ --exec \"cd package && npm run build && cd ../docs-src && npm run sync && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": " "
+  },
+  "author": "",
+  "license": "ISC"
+}

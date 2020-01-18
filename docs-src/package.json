@@ -5,7 +5,8 @@
     "license": "MIT",
     "scripts": {
         "build": "webpack",
-        "start": "webpack-dev-server"
+        "start": "webpack-dev-server",
+        "sync": "cp -a ../package/dist/. node_modules/react-bloating-grid/dist/"
     },
     "dependencies": {
         "prettier": "^1.19.1",

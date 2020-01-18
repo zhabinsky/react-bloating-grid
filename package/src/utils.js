@@ -5,8 +5,8 @@ function getCoordinates (boxIndex, gridWidth) {
 }
 
 function getVector (x1, y1, x2, y2) {
-  const x = x1 - x2;
   const y = y1 - y2;
+  const x = x1 - x2;
   return [
     x,
     y,
