@@ -1,13 +1,13 @@
 {
     "name": "react-bloating-grid",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "main": "./dist/index.js",
     "description": "Responsive react grid that bloats hovered elements.",
     "homepage": "https://zhabinsky.github.io/react-bloating-grid/",
     "keywords": [
         "react",
-        "grid",
         "responsive",
+        "grid",
         "animation"
     ],
     "repository": {
