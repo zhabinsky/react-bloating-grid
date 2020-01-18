@@ -1,0 +1,36 @@
+{
+    "name": "react-bloating-grid",
+    "version": "1.0.4",
+    "main": "./dist/index.js",
+    "description": "Responsive react grid that bloats hovered elements.",
+    "homepage": "https://zhabinsky.github.io/react-bloating-grid/",
+    "keywords": [
+        "react",
+        "grid",
+        "responsive",
+        "animation"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zhabinsky/react-bloating-grid"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "./node_modules/.bin/babel src --out-dir dist",
+        "prepublish": "cp ../README.md ./ && npm run build"
+    },
+    "peerDependencies": {
+        "prop-types": "^15.7.2",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.6",
+        "@babel/preset-env": "^7.1.6",
+        "@babel/preset-react": "^7.0.0",
+        "prop-types": "^15.7.2",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    }
+}
