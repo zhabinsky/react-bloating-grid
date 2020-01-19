@@ -1,0 +1,13 @@
+# How to constribute or test the library
+- clone the repository
+- do ```npm i``` in 
+	- ./docs-src
+	- ./package
+- run ```npm run dev``` from root folder
+- see working examples in the app running on port 8080
+- change code in
+	- ./package/src
+	- ./docs-src
+- see how those changes work in the app running on port 8080
+- update the docs via: ```npm run docs-compile```
+- submit a PR
