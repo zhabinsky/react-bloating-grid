@@ -4,11 +4,11 @@
   "description": "## [Documentation](https://zhabinsky.github.io/react-bloating-grid/)",
   "main": "index.js",
   "scripts": {
-    "compile-docs": "cd docs-src && npm run build && cd .. && git add . && git commit -m 'updated the docs'",
-    "build-package": "cd package && npm run build",
-    "sync-docs-package": "cd docs-src && npm run sync",
-    "start-dev-docs": "cd docs-src && npm start",
-    "dev": "nodemon --watch package/src/ --exec \"npm run build-package && npm run sync-docs-package && npm run start-dev-docs\""
+    "docs-sync": "cp -a package/src/. docs-src/package/",
+    "docs-dev": "cd docs-src && npm start",
+    "docs-compile": "cd docs-src && npm run build",
+    "pkg-build": "cd package && npm run build",
+    "dev": "nodemon --watch package/src/ --exec \"npm run pkg-build && npm run docs-sync && npm run docs-dev\""
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run compile-docs"
+      "pre-push": "npm run docs-compile"
     }
   }
 }

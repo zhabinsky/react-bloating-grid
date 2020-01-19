@@ -4,9 +4,8 @@
     "description": "React Boilerplate Component Demo",
     "license": "MIT",
     "scripts": {
-        "build": "npm run sync && webpack",
-        "start": "webpack-dev-server",
-        "sync": "cp -a ../package/src/. package/"
+        "build": "webpack",
+        "start": "webpack-dev-server"
     },
     "dependencies": {
         "prettier": "^1.19.1",

@@ -100,9 +100,9 @@ var defaultProps = {
 };
 
 function BloatingBase(props) {
-  var _props$id = props.id,
+  var children = props.children,
+      _props$id = props.id,
       containerId = _props$id === void 0 ? (0, _utils.generateID)() : _props$id,
-      children = props.children,
       style = props.style,
       styleChild = props.styleChild,
       gridColumns = props.gridColumns,
@@ -116,7 +116,7 @@ function BloatingBase(props) {
       disable = props.disable,
       propDisableMagnification = props.disableMagnification,
       propDisableMovement = props.disableMovement,
-      rest = _objectWithoutProperties(props, ["id", "children", "style", "styleChild", "gridColumns", "gridGap", "className", "classNameChild", "classNameChildSelected", "gridRowGap", "gridColumnGap", "trimLastRow", "disable", "disableMagnification", "disableMovement"]);
+      rest = _objectWithoutProperties(props, ["children", "id", "style", "styleChild", "gridColumns", "gridGap", "className", "classNameChild", "classNameChildSelected", "gridRowGap", "gridColumnGap", "trimLastRow", "disable", "disableMagnification", "disableMovement"]);
 
   var _useState = (0, _react.useState)(containerId),
       _useState2 = _slicedToArray(_useState, 1),

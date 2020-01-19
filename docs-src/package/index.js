@@ -70,8 +70,8 @@ const defaultProps = {
 
 function BloatingBase (props) {
   const {
-    id: containerId = generateID (),
     children,
+    id: containerId = generateID (),
     style,
     styleChild,
     gridColumns,
