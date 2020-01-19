@@ -4,9 +4,11 @@
   "description": "## [Documentation](https://zhabinsky.github.io/react-bloating-grid/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch package/src/ --ignore ../package/node_modules/ --exec \"cd package && npm run build && cd ../docs-src && npm run sync && npm start\"",
-    "compile-docs": "cd docs-src && npm run build && cd .. && git add . && git commit -m 'updated the docs'"
+    "compile-docs": "cd docs-src && npm run build && cd .. && git add . && git commit -m 'updated the docs'",
+    "build-package": "cd package && npm run build",
+    "sync-docs-package": "cd docs-src && npm run sync",
+    "start-dev-docs": "cd docs-src && npm start",
+    "dev": "nodemon --watch package/src/ --exec \"npm run build-package && npm run sync-docs-package && npm run start-dev-docs\""
   },
   "repository": {
     "type": "git",

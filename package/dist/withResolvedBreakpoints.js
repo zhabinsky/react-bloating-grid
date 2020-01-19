@@ -76,6 +76,7 @@ var withResolvedBreakpoints = function withResolvedBreakpoints(Component, checkF
       resolvedProps[name] = selectedValue;
     }
 
+    console.log(resolvedProps, props);
     return _react["default"].createElement(Component, _extends({}, props, resolvedProps));
   };
 };
@@ -124,7 +125,6 @@ var getAchievedBreakpoint = function getAchievedBreakpoint(width, breakpoints) {
     breakpoint = breakpoints[breakpoints.length - 1];
   }
 
-  console.log('SELECTED BREAKPOINT', breakpoint, breakpoints, width);
   return breakpoint;
 };
 

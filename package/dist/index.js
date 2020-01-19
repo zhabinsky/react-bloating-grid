@@ -94,6 +94,7 @@ var defaultProps = {
   effectScale: 1,
   effectScaleMovement: 1,
   effectScaleMagnification: 1,
+  disable: false,
   disableMagnification: false,
   disableMovement: false
 };
@@ -112,14 +113,19 @@ function BloatingBase(props) {
       propRowGap = props.gridRowGap,
       propColumnGap = props.gridColumnGap,
       trimLastRow = props.trimLastRow,
-      rest = _objectWithoutProperties(props, ["id", "children", "style", "styleChild", "gridColumns", "gridGap", "className", "classNameChild", "classNameChildSelected", "gridRowGap", "gridColumnGap", "trimLastRow"]);
+      disable = props.disable,
+      propDisableMagnification = props.disableMagnification,
+      propDisableMovement = props.disableMovement,
+      rest = _objectWithoutProperties(props, ["id", "children", "style", "styleChild", "gridColumns", "gridGap", "className", "classNameChild", "classNameChildSelected", "gridRowGap", "gridColumnGap", "trimLastRow", "disable", "disableMagnification", "disableMovement"]);
 
   var _useState = (0, _react.useState)(containerId),
       _useState2 = _slicedToArray(_useState, 1),
       id = _useState2[0];
 
-  var gridRowGap = gridGap || propRowGap;
-  var gridColumnGap = gridGap || propColumnGap;
+  var gridRowGap = propRowGap || gridGap;
+  var gridColumnGap = propColumnGap || gridGap;
+  var disableMagnification = disable === null ? propDisableMagnification : disable;
+  var disableMovement = disable === null ? propDisableMovement : disable;
   var nChildren = children.length;
 
   var _useSelectedBox = (0, _useSelectedBox3["default"])(id, gridColumns, gridRowGap, gridColumnGap, nChildren),
@@ -170,11 +176,11 @@ function BloatingBase(props) {
     if (selected >= 0) {
       var isSelected = index === selected;
 
-      if (isSelected) {
+      if (isSelected && !disableMagnification) {
         style.zIndex = 10;
-        if (!disableMagnification) style.transform = "scale(".concat(1 + 0.4 * effectIntensity, ")");
+        style.transform = "scale(".concat(1 + 0.4 * effectIntensity, ")");
         className += ' ' + classNameChildSelected;
-      } else {
+      } else if (!disableMovement) {
         var coeficient = -5 * (5 / distance) * effectIntensity;
         var offsetX = xDistance * coeficient;
         var offsetY = yDistance * coeficient;
@@ -189,7 +195,12 @@ function BloatingBase(props) {
   };
 
   var trimFilter = createTrimFilter(gridColumns, trimLastRow, nChildren);
-  return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("div", _extends({
+  return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("div", null, JSON.stringify({
+    disable: disable,
+    disableMagnification: disableMagnification,
+    disableMovement: disableMovement,
+    gridColumns: gridColumns
+  })), _react["default"].createElement("div", _extends({
     id: id,
     style: containerStyle,
     onMouseMove: onMouseMove,
@@ -198,7 +209,7 @@ function BloatingBase(props) {
   }, rest), children.filter(trimFilter).map(wrapChild)));
 }
 
-var Bloating = (0, _withResolvedBreakpoints["default"])(BloatingBase, ['gridColumns']);
+var Bloating = (0, _withResolvedBreakpoints["default"])(BloatingBase, ['gridColumns', 'gridGap', 'gridRowGap', 'gridColumnGap', 'trimLastRow', 'effectScale', 'effectScaleMovement', 'effectScaleMagnification', 'disableMagnification', 'disableMovement']);
 Bloating.propTypes = propTypes;
 Bloating.defaultProps = defaultProps;
 var _default = Bloating;

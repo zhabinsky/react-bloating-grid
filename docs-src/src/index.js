@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import BloatingGrid from 'react-bloating-grid';
+import BloatingGrid from '../package';
 import Title from './Title';
 import Code from './Code';
 import template from './template';
@@ -199,6 +199,10 @@ const defaultProps = {
             n: 10,
             componentProps: {
               trimLastRow: true,
+              disable: {
+                '0': true,
+                '1024': false,
+              },
               gridColumns: {
                 '0': 3,
                 '512': 4,
