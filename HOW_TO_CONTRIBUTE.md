@@ -1,5 +1,5 @@
 # How to constribute or test the library
-- clone the repository
+- fork the repository
 - do ```npm i``` in 
 	- ./docs-src
 	- ./package
