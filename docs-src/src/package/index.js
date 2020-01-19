@@ -70,8 +70,8 @@ const defaultProps = {
 
 function BloatingBase (props) {
   const {
-    children,
     id: containerId = generateID (),
+    children,
     style,
     styleChild,
     gridColumns,
@@ -165,7 +165,6 @@ function BloatingBase (props) {
 
   return (
     <React.Fragment>
-
       <div>
         {JSON.stringify ({
           disable,

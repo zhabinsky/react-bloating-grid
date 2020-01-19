@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import BloatingGrid from '../package';
+import BloatingGrid from './package';
 import Title from './Title';
 import Code from './Code';
 import template from './template';
