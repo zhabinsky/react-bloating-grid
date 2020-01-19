@@ -4,6 +4,7 @@ import BloatingGrid from './package';
 import Title from './Title';
 import Code from './Code';
 import template from './template';
+import propsString from './propsString';
 
 const Dummy = ({style}) => <div className="element" style={style} />;
 const repeat = (n, style = {}) =>
@@ -45,68 +46,6 @@ const CodeExample = example => {
 };
 
 const App = () => {
-  const propsString = `const CustomTypes = {
-  NumberOrBreakpointObject: PropTypes.oneOfType ([
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  BoolOrBreakpointObject: PropTypes.oneOfType ([
-    PropTypes.bool,
-    PropTypes.object,
-  ]),
-};
-
-const propTypes = {
-  id: PropTypes.string, // auto-generated
-  children: PropTypes.arrayOf (PropTypes.node),
-  style: PropTypes.object,
-  styleChild: PropTypes.object,
-
-  gridColumns: CustomTypes.NumberOrBreakpointObject.isRequired,
-  gridGap: CustomTypes.NumberOrBreakpointObject,
-  gridRowGap: CustomTypes.NumberOrBreakpointObject,
-  gridColumnGap: CustomTypes.NumberOrBreakpointObject,
-
-  className: PropTypes.string,
-  classNameChild: PropTypes.string,
-  classNameChildSelected: PropTypes.string,
-
-  trimLastRow: CustomTypes.BoolOrBreakpointObject, // makes there are no empty slots in rows
-
-  effectScale: CustomTypes.NumberOrBreakpointObject,
-  effectScaleMovement: CustomTypes.NumberOrBreakpointObject,
-  effectScaleMagnification: CustomTypes.NumberOrBreakpointObject,
-
-  disableMagnification: CustomTypes.BoolOrBreakpointObject,
-  disableMovement: CustomTypes.BoolOrBreakpointObject,
-};
-
-const defaultProps = {
-  id: undefined,
-  children: [],
-  style: {},
-  styleChild: {
-    transition: 'all 0.4s ease-out',
-  },
-
-  gridColumns: 5,
-  gridGap: 20,
-  gridRowGap: 20,
-  gridColumnGap: 20,
-
-  className: '',
-  classNameChild: '',
-  classNameChildSelected: '',
-
-  trimLastRow: false,
-
-  effectScale: 1,
-  effectScaleMovement: 1,
-  effectScaleMagnification: 1,
-
-  disableMagnification: false,
-  disableMovement: false,
-};`;
   return (
     <React.Fragment>
       <h1
@@ -155,18 +94,21 @@ const defaultProps = {
         nmpjs package
       </a>
 
-      <p style={{margin: '50px 0', fontSize: 16}}>
+      <div style={{margin: '50px 0', fontSize: 16}}>
         <h3>
           Easily create beautiful, responsive, performant content grids, that:
         </h3>
-        <ul>
-          <li>
-            react to hover event by pushing the neighbouring elements aside
-          </li>
-          <li>allow you to tune its behaviour via a number of props</li>
-          <li>support responsive props</li>
-        </ul>
-      </p>
+        <p>
+
+          <ul>
+            <li>
+              react to hover event by pushing the neighbouring elements aside
+            </li>
+            <li>allow you to tune its behaviour via a number of props</li>
+            <li>support responsive props</li>
+          </ul>
+        </p>
+      </div>
 
       <GridWrapper>
         <BloatingGrid gridColumns={6}>
@@ -210,6 +152,15 @@ const defaultProps = {
                 '1024': 6,
                 '1500': 7,
               },
+            },
+          },
+          {
+            title: 'Control effect scale',
+            n: 12,
+            componentProps: {
+              trimLastRow: true,
+              gridColumns: 6,
+              effectScale: 3,
             },
           },
         ].map (e => <CodeExample {...e} />)}

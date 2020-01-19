@@ -32,12 +32,13 @@ const propTypes = {
 
   trimLastRow: CustomTypes.BoolOrBreakpointObject, // makes there are no empty slots in rows
 
+  disable: CustomTypes.BoolOrBreakpointObject,
+  disableMagnification: CustomTypes.BoolOrBreakpointObject,
+  disableMovement: CustomTypes.BoolOrBreakpointObject,
+
   effectScale: CustomTypes.NumberOrBreakpointObject,
   effectScaleMovement: CustomTypes.NumberOrBreakpointObject,
   effectScaleMagnification: CustomTypes.NumberOrBreakpointObject,
-
-  disableMagnification: CustomTypes.BoolOrBreakpointObject,
-  disableMovement: CustomTypes.BoolOrBreakpointObject,
 };
 
 const defaultProps = {
@@ -59,13 +60,13 @@ const defaultProps = {
 
   trimLastRow: false,
 
-  effectScale: 1,
-  effectScaleMovement: 1,
-  effectScaleMagnification: 1,
-
   disable: false,
   disableMagnification: false,
   disableMovement: false,
+
+  effectScale: 1,
+  effectScaleMovement: 1,
+  effectScaleMagnification: 1,
 };
 
 function BloatingBase (props) {
@@ -74,19 +75,28 @@ function BloatingBase (props) {
     children,
     style,
     styleChild,
+
     gridColumns,
     gridGap,
+    gridRowGap: propRowGap,
+    gridColumnGap: propColumnGap,
+
     className,
     classNameChild,
     classNameChildSelected,
-    gridRowGap: propRowGap,
-    gridColumnGap: propColumnGap,
+
     trimLastRow,
+
     disable,
     disableMagnification: propDisableMagnification,
     disableMovement: propDisableMovement,
+
+    effectScale,
+    effectScaleMovement: propEffectScaleMovement,
+    effectScaleMagnification: propEffectScaleMagnification,
     ...rest
   } = props;
+
   const [id] = useState (containerId);
 
   const gridRowGap = propRowGap || gridGap;
@@ -96,6 +106,13 @@ function BloatingBase (props) {
     ? propDisableMagnification
     : disable;
   const disableMovement = disable === null ? propDisableMovement : disable;
+
+  const effectScaleMovement = effectScale === null
+    ? propEffectScaleMovement
+    : effectScale;
+  const effectScaleMagnification = effectScale === null
+    ? propEffectScaleMagnification
+    : effectScale;
 
   const nChildren = children.length;
 
@@ -141,15 +158,18 @@ function BloatingBase (props) {
     };
     const style = {...styleChild};
     let className = classNameChild;
+
     const effectIntensity = 1 / (window.innerWidth / 800);
+
     if (selected >= 0) {
       const isSelected = index === selected;
       if (isSelected && !disableMagnification) {
         style.zIndex = 10;
-        style.transform = `scale(${1 + 0.4 * effectIntensity})`;
+        style.transform = `scale(${1 + 0.4 * effectIntensity * effectScaleMagnification})`;
         className += ' ' + classNameChildSelected;
       } else if (!disableMovement) {
-        const coeficient = -5 * (5 / distance) * effectIntensity;
+        const coeficient =
+          -5 * (5 / distance) * effectIntensity * effectScaleMovement;
         const offsetX = xDistance * coeficient;
         const offsetY = yDistance * coeficient;
         style.transform = `translate(${offsetX}px, ${offsetY}px)`;
@@ -164,26 +184,16 @@ function BloatingBase (props) {
   const trimFilter = createTrimFilter (gridColumns, trimLastRow, nChildren);
 
   return (
-    <React.Fragment>
-      <div>
-        {JSON.stringify ({
-          disable,
-          disableMagnification,
-          disableMovement,
-          gridColumns,
-        })}
-      </div>
-      <div
-        id={id}
-        style={containerStyle}
-        onMouseMove={onMouseMove}
-        onMouseLeave={reset}
-        className={`bloting-grid ${className}`.trim ()}
-        {...rest}
-      >
-        {children.filter (trimFilter).map (wrapChild)}
-      </div>
-    </React.Fragment>
+    <div
+      id={id}
+      style={containerStyle}
+      onMouseMove={onMouseMove}
+      onMouseLeave={reset}
+      className={`bloating-grid ${className}`.trim ()}
+      {...rest}
+    >
+      {children.filter (trimFilter).map (wrapChild)}
+    </div>
   );
 }
 
@@ -196,6 +206,7 @@ const Bloating = withResolvedBreakpoints (BloatingBase, [
   'effectScale',
   'effectScaleMovement',
   'effectScaleMagnification',
+  'disable',
   'disableMagnification',
   'disableMovement',
 ]);

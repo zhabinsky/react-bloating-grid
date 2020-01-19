@@ -4,7 +4,7 @@
   "description": "## [Documentation](https://zhabinsky.github.io/react-bloating-grid/)",
   "main": "index.js",
   "scripts": {
-    "docs-sync": "cp -a package/src/. docs-src/package/",
+    "docs-sync": "cp -a package/src/. docs-src/src/package/",
     "docs-dev": "cd docs-src && npm start",
     "docs-compile": "cd docs-src && npm run build",
     "pkg-build": "cd package && npm run build",

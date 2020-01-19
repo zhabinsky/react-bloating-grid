@@ -70,11 +70,12 @@ var propTypes = {
   classNameChildSelected: _propTypes["default"].string,
   trimLastRow: CustomTypes.BoolOrBreakpointObject,
   // makes there are no empty slots in rows
+  disable: CustomTypes.BoolOrBreakpointObject,
+  disableMagnification: CustomTypes.BoolOrBreakpointObject,
+  disableMovement: CustomTypes.BoolOrBreakpointObject,
   effectScale: CustomTypes.NumberOrBreakpointObject,
   effectScaleMovement: CustomTypes.NumberOrBreakpointObject,
-  effectScaleMagnification: CustomTypes.NumberOrBreakpointObject,
-  disableMagnification: CustomTypes.BoolOrBreakpointObject,
-  disableMovement: CustomTypes.BoolOrBreakpointObject
+  effectScaleMagnification: CustomTypes.NumberOrBreakpointObject
 };
 var defaultProps = {
   id: undefined,
@@ -91,32 +92,35 @@ var defaultProps = {
   classNameChild: '',
   classNameChildSelected: '',
   trimLastRow: false,
-  effectScale: 1,
-  effectScaleMovement: 1,
-  effectScaleMagnification: 1,
   disable: false,
   disableMagnification: false,
-  disableMovement: false
+  disableMovement: false,
+  effectScale: 1,
+  effectScaleMovement: 1,
+  effectScaleMagnification: 1
 };
 
 function BloatingBase(props) {
-  var children = props.children,
-      _props$id = props.id,
+  var _props$id = props.id,
       containerId = _props$id === void 0 ? (0, _utils.generateID)() : _props$id,
+      children = props.children,
       style = props.style,
       styleChild = props.styleChild,
       gridColumns = props.gridColumns,
       gridGap = props.gridGap,
+      propRowGap = props.gridRowGap,
+      propColumnGap = props.gridColumnGap,
       className = props.className,
       classNameChild = props.classNameChild,
       classNameChildSelected = props.classNameChildSelected,
-      propRowGap = props.gridRowGap,
-      propColumnGap = props.gridColumnGap,
       trimLastRow = props.trimLastRow,
       disable = props.disable,
       propDisableMagnification = props.disableMagnification,
       propDisableMovement = props.disableMovement,
-      rest = _objectWithoutProperties(props, ["children", "id", "style", "styleChild", "gridColumns", "gridGap", "className", "classNameChild", "classNameChildSelected", "gridRowGap", "gridColumnGap", "trimLastRow", "disable", "disableMagnification", "disableMovement"]);
+      effectScale = props.effectScale,
+      propEffectScaleMovement = props.effectScaleMovement,
+      propEffectScaleMagnification = props.effectScaleMagnification,
+      rest = _objectWithoutProperties(props, ["id", "children", "style", "styleChild", "gridColumns", "gridGap", "gridRowGap", "gridColumnGap", "className", "classNameChild", "classNameChildSelected", "trimLastRow", "disable", "disableMagnification", "disableMovement", "effectScale", "effectScaleMovement", "effectScaleMagnification"]);
 
   var _useState = (0, _react.useState)(containerId),
       _useState2 = _slicedToArray(_useState, 1),
@@ -126,6 +130,8 @@ function BloatingBase(props) {
   var gridColumnGap = propColumnGap || gridGap;
   var disableMagnification = disable === null ? propDisableMagnification : disable;
   var disableMovement = disable === null ? propDisableMovement : disable;
+  var effectScaleMovement = effectScale === null ? propEffectScaleMovement : effectScale;
+  var effectScaleMagnification = effectScale === null ? propEffectScaleMagnification : effectScale;
   var nChildren = children.length;
 
   var _useSelectedBox = (0, _useSelectedBox3["default"])(id, gridColumns, gridRowGap, gridColumnGap, nChildren),
@@ -178,10 +184,10 @@ function BloatingBase(props) {
 
       if (isSelected && !disableMagnification) {
         style.zIndex = 10;
-        style.transform = "scale(".concat(1 + 0.4 * effectIntensity, ")");
+        style.transform = "scale(".concat(1 + 0.4 * effectIntensity * effectScaleMagnification, ")");
         className += ' ' + classNameChildSelected;
       } else if (!disableMovement) {
-        var coeficient = -5 * (5 / distance) * effectIntensity;
+        var coeficient = -5 * (5 / distance) * effectIntensity * effectScaleMovement;
         var offsetX = xDistance * coeficient;
         var offsetY = yDistance * coeficient;
         style.transform = "translate(".concat(offsetX, "px, ").concat(offsetY, "px)");
@@ -195,21 +201,16 @@ function BloatingBase(props) {
   };
 
   var trimFilter = createTrimFilter(gridColumns, trimLastRow, nChildren);
-  return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("div", null, JSON.stringify({
-    disable: disable,
-    disableMagnification: disableMagnification,
-    disableMovement: disableMovement,
-    gridColumns: gridColumns
-  })), _react["default"].createElement("div", _extends({
+  return _react["default"].createElement("div", _extends({
     id: id,
     style: containerStyle,
     onMouseMove: onMouseMove,
     onMouseLeave: reset,
-    className: "bloting-grid ".concat(className).trim()
-  }, rest), children.filter(trimFilter).map(wrapChild)));
+    className: "bloating-grid ".concat(className).trim()
+  }, rest), children.filter(trimFilter).map(wrapChild));
 }
 
-var Bloating = (0, _withResolvedBreakpoints["default"])(BloatingBase, ['gridColumns', 'gridGap', 'gridRowGap', 'gridColumnGap', 'trimLastRow', 'effectScale', 'effectScaleMovement', 'effectScaleMagnification', 'disableMagnification', 'disableMovement']);
+var Bloating = (0, _withResolvedBreakpoints["default"])(BloatingBase, ['gridColumns', 'gridGap', 'gridRowGap', 'gridColumnGap', 'trimLastRow', 'effectScale', 'effectScaleMovement', 'effectScaleMagnification', 'disable', 'disableMagnification', 'disableMovement']);
 Bloating.propTypes = propTypes;
 Bloating.defaultProps = defaultProps;
 var _default = Bloating;
