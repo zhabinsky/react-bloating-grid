@@ -64,4 +64,4 @@ ReactDOM.render(<App />, document.querySelect("#root"));
 
 ![Example](https://raw.githubusercontent.com/zhabinsky/react-bloating-grid/master/example_b.gif)
 
-[Documentation](https://zhabinsky.github.io/react-bloating-grid/)
+# [Documentation and examples](https://zhabinsky.github.io/react-bloating-grid/)
