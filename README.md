@@ -1,6 +1,6 @@
 # React Bloating Grid
 
-## [Documentation](https://zhabinsky.github.io/react-bloating-grid/)
+## [Documentation and Examples](https://zhabinsky.github.io/react-bloating-grid/)
 
 [npmjs](https://www.npmjs.com/package/react-bloating-grid)
 [github](https://github.com/zhabinsky/react-bloating-grid)
