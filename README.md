@@ -2,6 +2,9 @@
 
 ## [Documentation](https://zhabinsky.github.io/react-bloating-grid/)
 
+[npmjs](https://www.npmjs.com/package/react-bloating-grid)
+[github](https://github.com/zhabinsky/react-bloating-grid)
+
 ![Example](https://raw.githubusercontent.com/zhabinsky/react-bloating-grid/master/example_a.gif)
 
 ## Install
