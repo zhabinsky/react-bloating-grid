@@ -18,7 +18,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd docs-src && npm run build"
+      "pre-push": "cd docs-src && npm run build && git add . && git commit -m 'updated the docs'"
     }
   }
 }
