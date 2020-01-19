@@ -26,12 +26,13 @@ const propsString = `const CustomTypes = {
   
 	trimLastRow: CustomTypes.BoolOrBreakpointObject, // makes there are no empty slots in rows
   
+	disable: CustomTypes.BoolOrBreakpointObject,
+	disableMagnification: CustomTypes.BoolOrBreakpointObject,
+	disableMovement: CustomTypes.BoolOrBreakpointObject,
+  
 	effectScale: CustomTypes.NumberOrBreakpointObject,
 	effectScaleMovement: CustomTypes.NumberOrBreakpointObject,
 	effectScaleMagnification: CustomTypes.NumberOrBreakpointObject,
-  
-	disableMagnification: CustomTypes.BoolOrBreakpointObject,
-	disableMovement: CustomTypes.BoolOrBreakpointObject,
   };
   
   const defaultProps = {
@@ -53,12 +54,13 @@ const propsString = `const CustomTypes = {
   
 	trimLastRow: false,
   
+	disable: false,
+	disableMagnification: false,
+	disableMovement: false,
+  
 	effectScale: 1,
 	effectScaleMovement: 1,
 	effectScaleMagnification: 1,
-  
-	disableMagnification: false,
-	disableMovement: false,
   };`;
 
 export default propsString;
