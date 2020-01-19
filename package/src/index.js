@@ -140,7 +140,8 @@ function BloatingBase (props) {
       const isSelected = index === selected;
       if (isSelected) {
         style.zIndex = 10;
-        style.transform = `scale(${1 + 0.4 * effectIntensity})`;
+        if (!disableMagnification)
+          style.transform = `scale(${1 + 0.4 * effectIntensity})`;
         className += ' ' + classNameChildSelected;
       } else {
         const coeficient = -5 * (5 / distance) * effectIntensity;

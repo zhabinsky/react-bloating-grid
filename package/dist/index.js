@@ -172,7 +172,7 @@ function BloatingBase(props) {
 
       if (isSelected) {
         style.zIndex = 10;
-        style.transform = "scale(".concat(1 + 0.4 * effectIntensity, ")");
+        if (!disableMagnification) style.transform = "scale(".concat(1 + 0.4 * effectIntensity, ")");
         className += ' ' + classNameChildSelected;
       } else {
         var coeficient = -5 * (5 / distance) * effectIntensity;

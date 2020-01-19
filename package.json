@@ -12,5 +12,13 @@
     "url": " "
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^4.0.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cd docs-src && npm run build"
+    }
+  }
 }
