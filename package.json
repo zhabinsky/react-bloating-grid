@@ -10,11 +10,7 @@
     "pkg-build": "cd package && npm run build",
     "dev": "nodemon --watch package/src/ --exec \"npm run pkg-build && npm run docs-sync && npm run docs-dev\""
   },
-  "repository": {
-    "type": "git",
-    "url": " "
-  },
-  "author": "",
+  "author": "Vladislav Zhabinsky <vladislavzhabinsky@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "babel-preset-minify": "^0.5.1"
