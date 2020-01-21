@@ -27,7 +27,7 @@ function App() {
   return <BloatingGrid gridColumns={6}>{children(6)}</BloatingGrid>;
 }
 
-ReactDOM.render(<App />, document.querySelect("#root"));
+ReactDOM.render(<App />, document.querySelector("#root"));
 ```
 ```
 .element {
