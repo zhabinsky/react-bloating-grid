@@ -17,11 +17,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "husky": "^4.0.10"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run docs-compile"
-    }
+    "babel-preset-minify": "^0.5.1"
   }
 }

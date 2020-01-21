@@ -1,37 +1,5 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getCoordinates = getCoordinates;
-exports.getVector = getVector;
-exports.generateID = generateID;
-
-function getCoordinates(boxIndex, gridWidth) {
-  var x = boxIndex % gridWidth;
-  var y = Math.floor(boxIndex / gridWidth);
-  return [x, y];
-}
-
-function getVector(x1, y1, x2, y2) {
-  var y = y1 - y2;
-  var x = x1 - x2;
-  return [x, y, Math.hypot(x, y) // length
-  ];
-}
-
-function generateID() {
-  var result = '';
-  var characters = 'abcdefghijklmnopqrstuvwxyz';
-
-  for (var i = 0; i < 6; i++) {
-    var index = Math.floor(Math.random() * characters.length);
-    result += characters.charAt(index);
-  }
-
-  return 'bloating-' + result;
-}
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getCoordinates=getCoordinates,exports.getVector=getVector,exports.generateID=generateID;function getCoordinates(boxIndex,gridWidth){var y=Math.floor(boxIndex/gridWidth);return[boxIndex%gridWidth,y]}function getVector(x1,y1,x2,y2){var y=y1-y2,x=x1-x2;return[x,y,Math.hypot(x,y)// length
+]}function generateID(){for(var index,result="",characters="abcdefghijklmnopqrstuvwxyz",i=0;6>i;i++)index=Math.floor(Math.random()*characters.length),result+=characters.charAt(index);return"bloating-"+result}/**
  * Using arrays instead of objects
  * As a micro optimization
  * 
