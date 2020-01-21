@@ -7,6 +7,8 @@
 
 ![Example](https://raw.githubusercontent.com/zhabinsky/react-bloating-grid/master/example_a.gif)
 
+[How to contribute?](https://raw.githubusercontent.com/zhabinsky/react-bloating-grid/master/HOW_TO_CONTRIBUTE.md)
+
 ## Install
 
 ```
