@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import useSelectedBox from './useSelectedBox';
 import {getCoordinates, getVector, generateID} from './utils';
+import isServer from './isServer';
 import withResolvedBreakpoints from './withResolvedBreakpoints';
 
 const CustomTypes = {
@@ -159,7 +160,7 @@ function BloatingBase (props) {
     const style = {...styleChild};
     let className = classNameChild;
 
-    const effectIntensity = 1 / (window.innerWidth / 800);
+    const effectIntensity = isServer ? 1 : 1 / (window.innerWidth / 800);
 
     if (selected >= 0) {
       const isSelected = index === selected;

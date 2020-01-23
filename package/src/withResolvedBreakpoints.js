@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import isServer from './isServer';
 
 const gatherExpectedBreakpoints = (props, checkFields) => {
   const expectedBreakpoints = [];
@@ -53,7 +54,9 @@ const withResolvedBreakpoints = (Component, checkFields) => {
 
 export default withResolvedBreakpoints;
 
-const getWidth = () => window.innerWidth;
+const getWidth = () => {
+  return isServer ? 800 : window.innerWidth;
+};
 
 const useWidthWithBreakpoints = bpoints => {
   const [breakpoint, setBreakpoint] = useState (0);
@@ -65,6 +68,11 @@ const useWidthWithBreakpoints = bpoints => {
       if (breakpoint !== current) setBreakpoint (current);
     };
     handleResize ();
+
+    if (isServer) {
+      return () => null;
+    }
+
     window.addEventListener ('resize', handleResize);
     return () => window.removeEventListener ('resize', handleResize);
   });
