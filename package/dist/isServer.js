@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=void 0;var check=new Function("try {return this===window;}catch(e){ return false;}"),isBrowser=check(),_default=!isBrowser;exports["default"]=_default;
