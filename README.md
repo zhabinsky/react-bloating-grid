@@ -1,5 +1,12 @@
 # React Bloating Grid
 
+## ⚠️ ATTENTION PLEASE ⚠️
+
+It's okay to use this, but I don't recommend looking into this library since there is better ways to do it nowadays
+For example you could use `react-spring` to achieve a better result, there is a good example [here](https://codesandbox.io/s/6zchkl) 
+
+Good luck!
+
 ## [Documentation and Examples](https://zhabinsky.github.io/react-bloating-grid/)
 
 [npmjs](https://www.npmjs.com/package/react-bloating-grid)
